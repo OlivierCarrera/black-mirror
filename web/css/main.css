@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+/** Useful classes **/
+.hidden {
+    display: none;
+}
+
+/** Website **/
+body {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 11px;
+}
+
+.video__elem {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    background-color: #000;
+}
+
+.main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    margin: 0 auto;
+    border: 6px solid #FFF;
+    background: rgba(0,0,0,0.9);
+    color: #FFF;
+
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    visibility: visible;
+}
+.main-content.main-content--show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.main-content__nav {
+    position: absolute;
+    right: 1%;
+    top: 20px;
+}
+
+.main-content__nav__link {
+    display: inline-block;
+    margin-right: 10px;
+}
+.main-content__nav__link.main-content__nav__link--disabled {
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.main-content__nav__link__img {
+    width: 20px;
+}
+
+.main-content_section--padding {
+    padding: 20px;
+}
+
+.main-content__subject {
+    margin: 20px auto 50px auto;
+    display: block;
+}
+
+.main-content__title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+.main-content__infos {
+    padding: 0 20px 20px 20px;
+    text-align: justify;
+    font-size: 1.3em;
+}
+
+.main-content__infos__summary {
+    padding-bottom: 10px;
+}
+
+.season-nav {
+    text-align: center;
+}
+
+.season-nav__elem {
+    display: inline-block;
+    margin-left: 10px;
+}
+.season-nav__elem:first-child {
+    margin-left: 0;
+}
+
+.season-nav__elem__link {
+    font-size: 1.7em;
+}
+.season-nav__elem__link--current {
+    text-decoration: underline;
+}
+
+.season-episodes {
+    clear: both;
+    margin-top: 20px;
+}
+
+.season-episodes__elem {
+    margin-top: 10px;
+}
+.season-episodes__elem:first-child {
+    margin-top: 0;
+}
+
+.season-episodes__elem__link {
+    font-size: 1.5em;
+}
+
+@media screen and (min-width: 1024px) {
+    .main-content__infos {
+        font-size: 1.5em;
+    }
+}

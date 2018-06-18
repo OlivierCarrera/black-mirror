@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ showData.name }}{% endblock %}
+
+{% block body %}
+    <div class="video">
+        <img class="video__elem" src="{{ asset('img/source.gif') }}?rand={{ number }}" />
+    </div>
+
+    <main class="main-content" id="main-content">
+        <nav class="main-content__nav">
+            <a href="javascript:void(0);" class="main-content__nav__link main-content__nav__link--disabled" id="navLeft">
+                <img src="{{ asset('img/arrow-left.png') }}" alt="Show" class="main-content__nav__link__img" />
+            </a>
+            <a href="javascript:void(0);" class="main-content__nav__link" id="navRight">
+                <img src="{{ asset('img/arrow-right.png') }}" alt="Episodes" class="main-content__nav__link__img" />
+            </a>
+        </nav>
+
+        <section id="showData" class="main-content_section">
+            <a href="{{ showData.officialSite }}" title="{{ showData.name }}">
+                <img src="{{ showData.image }}" alt="{{ showData.name }}" class="main-content__subject" />
+            </a>
+
+            <h1 class="main-content__title">
+                <a href="{{ showData.officialSite }}" title="{{ showData.name }}" class="main-content__title__link">{{ showData.name }}</a>
+            </h1>
+
+            <div class="main-content__infos">
+                <p class="main-content__infos__summary">{{ showData.summary }}</p>
+                <p>{{ showData.genres }} / Rating : {{ showData.rating }}</p>
+                <p>Status : {{ showData.status }}</p>
+            </div>
+        </section>
+
+        <section id="episodesData" class="main-content_section main-content_section--padding hidden">
+            <nav class="season-nav">
+                <ul>
+                    {% for season,episode in episodesData %}
+                        <li class="season-nav__elem">
+                            <a href="javascript:void(0);" id="nav{{ season }}" class="season-nav__elem__link {% if season == 1 %}season-nav__elem__link--current{% endif %}">Season {{ season }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+
+            {% for season,episode in episodesData %}
+                <ul class="nav{{ season }} season-episodes {% if season > 1 %}hidden{% endif %}">
+                    {% for episodeNumber,data in episode %}
+                        <li class="season-episodes__elem">
+                            <a href="{{ data.url }}" title="{{ data.name }}" class="season-episodes__elem__link">
+                                {{ episodeNumber }}. {{ data.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}
