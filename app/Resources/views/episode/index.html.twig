@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ showData.name }}{% endblock %}
+{% block title %}{{ episode.name }}{% endblock %}
 
 {% block body %}
     <div class="video">
@@ -8,6 +8,23 @@
     </div>
 
     <main class="main-content" id="main-content">
-        data
+        <section class="main-content_section">
+            <h1 class="main-content__title main-content__title--padding">{{ episode.name }}</h1>
+
+            <img src="{{ episode.image }}" alt="{{ episode.name }}" class="main-content__img" />
+
+            <div class="main-content__infos">
+                <p>{{ episode.summary }}</p>
+                <br />
+
+                <p>Season {{ episode.season }} episode {{ episode.number }}</p>
+                <p>Air date : {{ episode.airdate }}</p>
+                <br />
+                
+                <p>
+                    <a href="{{ episode.url }}" title="{{ episode.name }}" target="_blank">Watch on TVMaze</a>
+                </p>
+            </div>
+        </section>
     </main>
 {% endblock %}

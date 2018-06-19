@@ -19,11 +19,11 @@
          *
          * @return array
          */
-        public function getShowData()
+        public function getShow()
         {
             $resources = $this->getNetflixContent()->resources;
 
-            $showData = [
+            $show = [
                 'officialSite' => $resources->officialSite,
                 'name' => $resources->name,
                 'genres' => implode(', ', $resources->genres),
@@ -33,7 +33,7 @@
                 'summary' => strip_tags($resources->summary)
             ];
 
-            return $showData;
+            return $show;
         }
 
         /*
@@ -41,13 +41,13 @@
          *
          * @return array
          */
-        public function getEpisodesData()
+        public function getEpisodes()
         {
-            $episodes = $this->getNetflixContent()->resources->_embedded->episodes;
+            $data = $this->getNetflixContent()->resources->_embedded->episodes;
 
-            $episodesData = [];
-            foreach ($episodes as $episode) {
-                $episodesData[$episode->season][$episode->number] = [
+            $episodes = [];
+            foreach ($data as $episode) {
+                $episodes[$episode->season][$episode->number] = [
                     'url' => $this->container->get('router')->generate(
                         'episode',
                         ['season' => $episode->season, 'number' => $episode->number]
@@ -56,7 +56,37 @@
                 ];
             }
 
-            return $episodesData;
+            return $episodes;
+        }
+
+        /*
+         * Retrieve all data about the episode
+         *
+         * @param int $season
+         * @param int $number
+         * @return array
+         */
+        public function getEpisode($season, $number)
+        {
+            $episodes = $this->getNetflixContent()->resources->_embedded->episodes;
+
+            $data = [];
+            foreach ($episodes as $episode) {
+                if ($episode->season == $season && $episode->number == $number) {
+                    $date = date("d/m/Y", strtotime($episode->airdate));
+                    $data = [
+                        'name' => $episode->name,
+                        'url' => $episode->url,
+                        'season' => $season,
+                        'number' => $number,
+                        'airdate' => $date,
+                        'image' => $episode->image->medium,
+                        'summary' => strip_tags($episode->summary)
+                    ];
+                }
+            }
+
+            return $data;
         }
 
         /*
