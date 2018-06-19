@@ -13,8 +13,11 @@ class EpisodeController extends Controller
      *
      * @param NetflixApi $netflixApi
      */
-    public function indexAction(NetflixApi $netflixApi)
+    public function indexAction(NetflixApi $netflixApi, $season, $number)
     {
+        // Get episode data
+        $params['episode'] = $netflixApi->getEpisode($season, $number);
+
         // Random number to prevent gif from being put in cache
         $params['number'] = rand(1, 1000);
 
