@@ -17,7 +17,7 @@
             </a>
         </nav>
 
-        <section id="showData" class="main-content_section">
+        <section id="showData" class="main-content__section">
             <a href="{{ showData.officialSite }}" title="{{ showData.name }}">
                 <img src="{{ showData.image }}" alt="{{ showData.name }}" class="main-content__subject" />
             </a>
@@ -33,7 +33,7 @@
             </div>
         </section>
 
-        <section id="episodesData" class="main-content_section main-content_section--padding hidden">
+        <section id="episodesData" class="main-content__section main-content__section--padding hidden">
             <nav class="season-nav">
                 <ul>
                     {% for season,episode in episodesData %}

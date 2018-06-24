@@ -124,8 +124,19 @@ img {
     width: 20px;
 }
 
-.main-content_section {
+.main-content__section {
     padding: 20px;
+}
+
+.main-content__section__back {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.main-content__section__back img {
+    width: 20px;
 }
 
 .main-content__subject {
@@ -142,7 +153,6 @@ img {
 }
 
 .main-content__infos {
-    padding: 0 20px 20px 20px;
     text-align: justify;
     font-size: 1.3em;
 }

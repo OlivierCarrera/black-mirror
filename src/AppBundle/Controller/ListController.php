@@ -16,6 +16,8 @@ class ListController extends Controller
      */
     public function indexAction(NetflixApi $netflixApi)
     {
+        $params = [];
+
         // Fetch data about the show and episodes
         $params['showData'] = $netflixApi->getShow();
         $params['episodesData'] = $netflixApi->getEpisodes();

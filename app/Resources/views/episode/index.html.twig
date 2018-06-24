@@ -8,7 +8,11 @@
     </div>
 
     <main class="main-content" id="main-content">
-        <section class="main-content_section">
+        <section class="main-content__section">
+            <a href="/" title="Back to home" class="main-content__section__back">
+                <img src="{{ asset('img/home.png') }}" alt="Homepage" />
+            </a>
+
             <h1 class="main-content__title main-content__title--padding">{{ episode.name }}</h1>
 
             <img src="{{ episode.image }}" alt="{{ episode.name }}" class="main-content__img" />
