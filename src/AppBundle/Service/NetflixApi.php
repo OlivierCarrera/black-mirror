@@ -23,7 +23,7 @@
         {
             $resources = $this->getNetflixContent()->resources;
 
-            $show = [
+            return [
                 'officialSite' => $resources->officialSite,
                 'name' => $resources->name,
                 'genres' => implode(', ', $resources->genres),
@@ -32,8 +32,6 @@
                 'image' => $resources->image->medium,
                 'summary' => strip_tags($resources->summary)
             ];
-
-            return $show;
         }
 
         /*
@@ -83,6 +81,8 @@
                         'image' => $episode->image->medium,
                         'summary' => strip_tags($episode->summary)
                     ];
+
+                    break;
                 }
             }
 

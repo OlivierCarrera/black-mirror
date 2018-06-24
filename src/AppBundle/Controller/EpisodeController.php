@@ -15,6 +15,8 @@ class EpisodeController extends Controller
      */
     public function indexAction(NetflixApi $netflixApi, $season, $number)
     {
+        $params = [];
+
         // Get episode data
         $params['episode'] = $netflixApi->getEpisode($season, $number);
 

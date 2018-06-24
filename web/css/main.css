@@ -124,18 +124,18 @@ img {
     width: 20px;
 }
 
-.main-content_section {
+.main-content__section {
     padding: 20px;
 }
 
-.main-content_section__back {
+.main-content__section__back {
     display: block;
     position: absolute;
     top: 20px;
     left: 20px;
 }
 
-.main-content_section__back img {
+.main-content__section__back img {
     width: 20px;
 }
 
